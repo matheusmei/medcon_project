@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "294105916579",
+    "project_id": "medcon-dae5a",
+    "storage_bucket": "medcon-dae5a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:294105916579:android:3fe20c1b9c0342833d8b16",
+        "android_client_info": {
+          "package_name": "com.example.medcon_project_college"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "294105916579-tg54bd40dhkd7udj9aokm1omsospbead.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNNxtubfkEWsACqMMGmjZTiDYNSNDyAoM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "294105916579-tg54bd40dhkd7udj9aokm1omsospbead.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

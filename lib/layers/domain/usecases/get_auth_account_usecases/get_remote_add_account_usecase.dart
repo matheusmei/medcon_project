@@ -1,4 +1,4 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+
 import 'package:equatable/equatable.dart';
 
 import 'package:medcon_project_college/layers/domain/entities/account_entity.dart';
@@ -17,6 +17,7 @@ class AddAccountUsecaseParams extends Equatable {
   final String lastName;
   final int age;
   final String email;
+  final String password;
   final String gender;
 
   const AddAccountUsecaseParams({
@@ -24,6 +25,7 @@ class AddAccountUsecaseParams extends Equatable {
     required this.lastName,
     required this.age,
     required this.email,
+    required this.password,
     required this.gender,
   });
   
@@ -34,6 +36,7 @@ class AddAccountUsecaseParams extends Equatable {
     lastName,
     age,
     email,
+    password,
     gender,
   ];
 }
