@@ -12,4 +12,8 @@ abstract class FirestoreDataSource{
     required String path,
     required Map<String, dynamic> object,
   });
+
+    Future<Resource<Map<String, dynamic>, FirestoreErrorType>> getDocument({
+    required String path,
+  });
 }
