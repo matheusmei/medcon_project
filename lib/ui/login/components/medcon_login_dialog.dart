@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:medcon_project_college/presentation/login/mobx_login_presenter.dart';
 import 'package:medcon_project_college/ui/components/medcon_text_field.dart';
+import 'package:medcon_project_college/ui/login/components/login_button.dart';
 import 'package:medcon_project_college/ui/theme/theme_colors_app.dart';
 
 class MedconLoginDialog extends StatefulWidget {
-  const MedconLoginDialog({Key? key}) : super(key: key);
+  final MobxLoginPresenter loginPresenter;
+
+  const MedconLoginDialog({required this.loginPresenter, Key? key})
+      : super(key: key);
 
   @override
   State<MedconLoginDialog> createState() => _MedconLoginDialogState();
@@ -43,15 +46,23 @@ class _MedconLoginDialogState extends State<MedconLoginDialog> {
                             letterSpacing: 1,
                             color: ThemeColorsApp.firstGradientBackground),
                       ),
-                      const MedConTextField(
+                      MedConTextField(
                         labelText: 'Email',
+                        onChanged: widget.loginPresenter.changeEmail,
                       ),
                       const SizedBox(
                         height: 8,
                       ),
-                      const MedConTextField(
+                      MedConTextField(
                         labelText: 'Password',
+                        onChanged: widget.loginPresenter.changePassword,
                       ),
+                      const SizedBox(
+                        height: 8,
+                      ),
+                      LoginButton(
+                        loginPresenter: widget.loginPresenter,
+                      )
                     ],
                   ),
                 )

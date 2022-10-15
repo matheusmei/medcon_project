@@ -8,11 +8,10 @@ abstract class _MobxLoginPresenterBase with Store {
   late final GetAuthAccountUsecase remoteGetAuthAccount;
 
   @observable
-  String? email = '';
+  String? email;
 
   @observable
-  String? password = '';
-
+  String? password;
 
   @action
   void changeEmail(String newValue) => email = newValue;
@@ -20,17 +19,15 @@ abstract class _MobxLoginPresenterBase with Store {
   @action
   void changePassword(String newValue) => password = newValue;
 
-
-
-
   @override
   @action
-  Future<void> signIn() async{
-    try{
-      final sendResult = await remoteGetAuthAccount.call(
-        params: params,
-        collectionReferencePath: collectionReferencePath)
-    }
+  Future<void> signIn() async {
+    final sendResult = await remoteGetAuthAccount.call(
+      params: GetAuthAccountUsecaseParams(
+        email: email!,
+        password: password!,
+      ),
+      collectionReferencePath: 'users',
+    );
   }
-  
 }
