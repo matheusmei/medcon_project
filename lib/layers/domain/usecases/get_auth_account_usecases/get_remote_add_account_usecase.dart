@@ -15,7 +15,7 @@ mixin GetRemoteAddAccountUsecase{
 class AddAccountUsecaseParams extends Equatable {
   final String firstName;
   final String lastName;
-  final int age;
+  final String age;
   final String email;
   final String password;
   final String gender;

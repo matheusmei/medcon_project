@@ -66,7 +66,7 @@ class AddAccountRepositorie implements GetRemoteAddAccountUsecase {
 class RemoteAddAccountUsecaseParams{
   final String firstName;
   final String lastName;
-  final int age;
+  final String age;
   final String email;
   final String gender;
 

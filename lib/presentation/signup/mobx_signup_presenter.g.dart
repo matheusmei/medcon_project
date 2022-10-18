@@ -81,13 +81,13 @@ mixin _$MobxSignUpPresenter on _MobxSignUpPresenterBase, Store {
       Atom(name: '_MobxSignUpPresenterBase.age', context: context);
 
   @override
-  int? get age {
+  String? get age {
     _$ageAtom.reportRead();
     return super.age;
   }
 
   @override
-  set age(int? value) {
+  set age(String? value) {
     _$ageAtom.reportWrite(value, super.age, () {
       super.age = value;
     });
@@ -175,7 +175,7 @@ mixin _$MobxSignUpPresenter on _MobxSignUpPresenterBase, Store {
   }
 
   @override
-  void changeAge(int newValue) {
+  void changeAge(String newValue) {
     final _$actionInfo = _$_MobxSignUpPresenterBaseActionController.startAction(
         name: '_MobxSignUpPresenterBase.changeAge');
     try {

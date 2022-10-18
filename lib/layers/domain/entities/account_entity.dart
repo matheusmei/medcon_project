@@ -3,7 +3,7 @@ import 'package:equatable/equatable.dart';
 class AccountEntity extends Equatable {
   final String firstName;
   final String lastName;
-  final int age;
+  final String age;
   final String email;
   final String gender;
 
@@ -19,7 +19,7 @@ class AccountEntity extends Equatable {
     return AccountEntity(
       firstName: map['firstName'].toString(),
       lastName: map['lastName'].toString(),
-      age: map['age'],
+      age: map['age'].toString(),
       email: map['email'].toString(),
       gender: map['gender'].toString(),
     );

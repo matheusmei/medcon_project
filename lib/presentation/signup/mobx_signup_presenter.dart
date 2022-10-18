@@ -1,3 +1,5 @@
+import 'package:medcon_project_college/layers/data/repositories/add_account_repositorie.dart';
+import 'package:medcon_project_college/layers/domain/usecases/get_auth_account_usecases/get_auth_account_usecase.dart';
 import 'package:medcon_project_college/layers/domain/usecases/get_auth_account_usecases/get_remote_add_account_usecase.dart';
 import 'package:mobx/mobx.dart';
 part 'mobx_signup_presenter.g.dart';
@@ -5,6 +7,8 @@ part 'mobx_signup_presenter.g.dart';
 class MobxSignUpPresenter = _MobxSignUpPresenterBase with _$MobxSignUpPresenter;
 
 abstract class _MobxSignUpPresenterBase with Store {
+  late final GetRemoteAddAccountUsecase remoteGetAddAccount;
+
   @observable
   String? firstName = '';
 
@@ -12,7 +16,7 @@ abstract class _MobxSignUpPresenterBase with Store {
   String? lastName = '';
 
   @observable
-  int? age = 0;
+  String? age = '';
 
   @observable
   String? email = '';
@@ -30,7 +34,7 @@ abstract class _MobxSignUpPresenterBase with Store {
   void changeLastName(String newValue) => lastName = newValue;
 
   @action
-  void changeAge(int newValue) => age = newValue;
+  void changeAge(String newValue) => age = newValue;
 
   @action
   void changeEmail(String newValue) => email = newValue;
@@ -45,10 +49,10 @@ abstract class _MobxSignUpPresenterBase with Store {
   bool get isFirstNameValid => firstName != null;
 
   @computed
-  bool get isLastNameValid => lastName !=null;
+  bool get isLastNameValid => lastName != null;
 
   @computed
-  bool get isAgeValid => age != 0;
+  bool get isAgeValid => age != null;
 
   @computed
   bool get isEmailValid =>
@@ -63,10 +67,22 @@ abstract class _MobxSignUpPresenterBase with Store {
     final params = AddAccountUsecaseParams(
       firstName: firstName ?? '',
       lastName: lastName ?? '',
-      age: age ?? 0,
+      age: age ?? '',
       gender: gender ?? '',
       email: email ?? '',
       password: password ?? '',
     );
+    try {
+      final resource = await remoteGetAddAccount.call(
+        params: params,
+        collectionReferencePath: 'users',
+      );
+      if (resource.hasError) {
+        print('connection error');
+      } else
+        'deu good';
+    } catch (error) {
+      print('error');
+    }
   }
 }

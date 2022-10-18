@@ -27,7 +27,7 @@ class _MedconLoginDialogState extends State<MedconLoginDialog> {
           child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                const Spacer(),
+                
                 Container(
                   padding: const EdgeInsets.all(24.0),
                   decoration: BoxDecoration(

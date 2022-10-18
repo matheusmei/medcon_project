@@ -3,7 +3,7 @@ import 'package:medcon_project_college/layers/domain/entities/account_entity.dar
 class AccountModel {
   final String firstName;
   final String lastName;
-  final int age;
+  final String age;
   final String email;
   final String gender;
 
@@ -19,7 +19,7 @@ class AccountModel {
     return AccountModel(
       firstName: map['firstName'] as String,
       lastName: map['lastName'] as String,
-      age: map['age'] as int,
+      age: map['age'] as String,
       email: map['email'] as String,
       gender: map['gender'] as String,
     );
